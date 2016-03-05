@@ -12,6 +12,13 @@ public class Matematica {
     pr = (n1 + n2) / 2;
     return pr;
   }
+  
+  public long promediar(long n1, long n2) {
+    System.err.println("Caso 4");
+    long pr;
+    pr = (n1 + n2) / 2;
+    return pr;
+  }
 
   public double promediar(double n1, double n2) {
     System.err.println("Caso 2");
