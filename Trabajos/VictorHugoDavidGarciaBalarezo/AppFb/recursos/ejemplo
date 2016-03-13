@@ -1,0 +1,121 @@
+
+https://github.com/gcoronelc/SISTUNI_PROG_JAVA_004.git
+
+
+App ID
+482679671919335
+
+
+
+App Secret
+ea77f3bbed6ce510feed6619f00ff2f6
+
+
+
+CAAG2ZCp5ikucBAEGpAeEVWn5bZCRZBPTeqiDGd5oZAtTsARu59ATLc1oyayfAhlWYaUmcmAWlY5sSUrO2PAdZBFOHhdcCmrBso8QjzRQfEAXofTpK9d6kgScOAyrcpFcvy5EInDCWo7OkKYPmcJnSOmH6MdqtheOgoz2zIJKa4y0jw6YKHS4KHBcgtsXNiNaYIvirwYxoPgZDZD
+
+
+
+vencedor o el victorioso.  + "brillante, inteligente o perspicaz". + «el amado y querido» o «el elegido de Dios».
+
+
+
+
+CAACEdEose0cBAENDPqPASbaWjt2W5GuImMx6ZBNcjyOn6jEQ7S93miDVNS0RZAsT2pK76yelCe0NioIoxzjakZACLEQ1Fn3SFQ2yIlCbH0bwcWCPL2738y8YJPnSFoTWGpDu20zwgNuApR7UZBbxgoS2rmvnFlhlgaZBGZCnJGr8ee6LtkVMcocro7nZBlp6ZArNkM4WGKSoFAZDZD
+
+
+
+
+///////////////////
+
+
+
+ String accessToken = " ";
+       FacebookClient fbClient = new DefaultFacebookClient(accessToken);
+       
+       //AccessToken exAccessToken = fbClient.obtainExtendedAccessToken("482679671919335", "ea77f3bbed6ce510feed6619f00ff2f6");
+       /**
+       //System.out.println(exAccessToken.getAccessToken() );
+       User me = fbClient.fetchObject("me", User.class);
+       System.out.println("Nombre: "+me.getName());
+       System.out.println("Me: " + me.getLanguages().get(0).getName());    
+       //System.out.println(exAccessToken.getExpires() );
+       System.out.println("-------------"); 
+       
+       **/
+       Connection<Post> result = fbClient.fetchConnection("me/feed", Post.class) ;
+       
+
+       for (List<Post> page : result){
+           for(Post aPost : page){
+               System.out.println("Mensaje: "+aPost.getMessage() );
+               //System.out.println("Story  : "+aPost.getStory() );
+               //System.out.println("Fecha  : "+aPost.getCreatedTime() );
+           }
+           
+       }
+        
+       
+    FacebookClient facebookClient = new DefaultFacebookClient(accessToken);
+    User user = facebookClient.fetchObject("me", User.class); 
+    Page page = facebookClient.fetchObject("cocacola", Page.class); 
+    System.out.println("----User name: " + user.getName()); 
+    System.out.println("---Page likes: " + page.getLikes());
+
+
+
+
+//////////////////////////////////////////////////////
+try{
+        System.out.println("ai>"+ai);
+        System.out.println("as>"+as);
+        FacebookClient facebookClient = new DefaultFacebookClient(at);
+        User users = facebookClient.fetchObject("me", User.class);   
+        System.out.println("Mi facebook             : " + users.getName() );
+        System.out.println("-------------------------");
+        //AccessToken exAccessToken = facebookClient.obtainExtendedAccessToken(ai,as);
+        
+       //System.out.println(exAccessToken.getAccessToken() );
+       //System.out.println(exAccessToken.getExpires() );
+       //System.out.println("-------------"); 
+       
+       
+        Page pages = facebookClient.fetchObject("cocacola", Page.class);
+        
+        InfoFacebook medata = new InfoFacebook();
+        medata.setUsuario(users.getName());
+        medata.setEmail(users.getEmail());
+        medata.setGenero(users.getGender());
+        medata.setUrlmiimagen(users.getPicture().toString());
+
+        System.out.println("Page likes: " + pages.getLikes());
+
+        String repo = "";
+        repo += "Mi facebook             : " + users.getName()  + "\n";
+        repo += "Mi email                : " + users.getEmail() + "\n";
+        repo += "Mi Genero               : " + users.getGender() + "\n";
+
+     Connection<Post> result = facebookClient.fetchConnection("me/feed", Post.class) ;
+       
+       for (List<Post> page : result){
+           for(Post aPost : page){
+               System.out.println("Mensaje: "+aPost.getMessage() );
+               //System.out.println("Story  : "+aPost.getStory() );
+               //System.out.println("Fecha  : "+aPost.getCreatedTime() );
+           }
+           
+       }
+        
+        repo += "Cocacola numero de likes: " + pages.getLikes() + "\n";    
+        System.out.println(repo);
+       // medata.setIdPost(at);
+
+    //Post post = facebookClient.fetchObject("10152638261559500_10153948725489500", Post.class);
+    //long like = post.getLikesCount();
+    //System.out.print(like);
+     
+                  
+    } catch (Exception e) {
+        System.out.println("Sin conexion");
+        
+   }
